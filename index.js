@@ -45,7 +45,7 @@ app.get('/minigames/starcraft', (req,res) => {
 });
 
 app.get('/minigames/CGJ', (req,res) => {
-	res.sendFile(__dirname + 'views/minigames/cgj.html');
+	res.sendFile(__dirname + "/views/minigames/cgj.html");
 })
 
 app.get('/coriolis', (req,res) =>{
