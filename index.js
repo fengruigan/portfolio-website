@@ -53,12 +53,12 @@ app.get('/coriolis', (req,res) =>{
 });
 
 app.get('/relativity', (req,res) => {
-	res.render("games/relativity");
+	res.send("page under construction")
+	// res.render("games/relativity");
 });
 
 app.get('/gravity', (req,res)=> {
-	res.send("page under construction")
-	// res.render("games/gravity");
+	res.render("games/gravity");
 });
 
 // // CREATE post comments to index page
