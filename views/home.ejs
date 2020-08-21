@@ -1,0 +1,100 @@
+<%- include("./partials/header") %>
+
+
+<div class="title">
+	<h1>
+		<i class="gamepad icon"></i> Physics Playground
+	</h1>
+	<h2>
+		Welcome to the physics playground where you can explore physics to your heart's content
+	</h2>
+</div>
+
+
+<!-- this is the main content div -->
+<div class="main ui container">
+	<h2>
+		<i class="child icon"></i> There are plenty to play around with!
+	</h2>
+	<hr class="abrupt">
+	<!-- the items will be link cards -->
+	<!-- I dont think so, but possibly the cards will be stored in a db? If I add comments? -->
+	<div class="ui link cards">
+		<!-- individual link cards are a tags -->
+		<a class="ui card" href="/gravity">
+			<div class="image">
+				<img src="https://images.unsplash.com/photo-1582757557019-d878177b9e1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+			</div>
+			<div class="content">
+				<div class="header">
+					Gravity
+				</div>
+				<div class="description">
+					Play around with our sun
+				</div>
+			</div>
+		</a>
+		<a class="ui card" href="/coriolis">
+			<div class="image">
+				<!-- the image will eventually be a screenshot of the game -->
+				<img src="https://images.unsplash.com/photo-1525779350160-30931cbc2aac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+			</div>
+			<div class="content">
+				<div class="header">
+					Coriolis Effect
+				</div>
+				<div class="description">
+					Try shooting at a target on a spinning platform
+				</div>
+			</div>
+		</a>
+		<a class="ui card" href="/relativity">
+			<div class="image">
+				<img src="https://images.unsplash.com/photo-1590184884426-57e7c76155df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+			</div>
+			<div class="content">
+				<div class="header">
+					Special Relativity
+				</div>
+				<div class="description">
+					Look at the world from a car traveling near the speed of light
+				</div>
+			</div>
+		</a>
+	</div>
+	<h2>
+		<i class="gamepad icon"></i> Other minigames I made on the side
+	</h2>
+	<hr class="abrupt">
+	<div class="ui link cards">
+		<!-- <a href="/mini_games/starcraft"> -->
+		<a class="ui card" href="/minigames/starcraft">
+			<div class="image">
+				<img src="images/marine_vs_zergling_thumbnail.png">
+			</div>
+			<div class="content">
+				<div class="header">
+					Marine vs. Zerglings
+				</div>
+				<div class="description">
+					This is a mini game I made back when I was in high school
+				</div>
+			</div>
+		</a>
+		<a class="ui card" href="/minigames/CGJ">
+			<div class="image">
+				<img src="images/CGJ_game_thumbnail.png">
+			</div>
+			<div class="content">
+				<div class="header">
+					Fission (我裂开了)
+				</div>
+				<div class="description">
+					This is a game made for <em>2020 CiGA Game Jam</em> 48 competition
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+<%- include("./partials/footer") %>
