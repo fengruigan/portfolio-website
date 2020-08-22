@@ -21,7 +21,8 @@ i.icon {
 }
 
 .title{
-	padding-top: min(15%, 5.5em);
+	/*padding-top: min(15%, 5.5em);*/
+	padding-top: 5.5em;
 	text-align: center;
 	background-color: rgba(0, 0, 0, 0.1);
 	padding-bottom: 1.5em;

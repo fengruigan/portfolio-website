@@ -39,13 +39,17 @@ app.get('/about', (req,res) => {
 // 	res.send("Page under construction");
 // })
 
+app.get('/minigames', (req,res) => {
+	res.render("minigames/index");
+})
+
 app.get('/minigames/starcraft', (req,res) => {
-	res.sendFile(__dirname + "/views/minigames/starcraft.html");
+	res.sendFile(__dirname + "/views/minigames/games/starcraft.html");
 	// res.send('this will be a minigame');
 });
 
 app.get('/minigames/CGJ', (req,res) => {
-	res.sendFile(__dirname + "/views/minigames/cgj.html");
+	res.sendFile(__dirname + "/views/minigames/games/cgj.html");
 })
 
 app.get('/coriolis', (req,res) =>{
