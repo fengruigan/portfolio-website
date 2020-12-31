@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Physics Playground | Coriollis</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="shortcut icon" href="/CoriolisGame/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="/CoriolisGame/TemplateData/style.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  </head>
+  <body>
+
+    <div class="ui fixed inverted violet menu">
+			<div class="ui container">
+				<div class="header item">
+					<!-- this redirects to home page -->
+					<a href="/"><i class="gamepad icon"></i> Physics Playground</a>
+				</div>
+				<div class="header item">
+					<!-- this will likely be a drop down menu of all topics -->
+					<a href="#"><i class="flask icon"></i> Topics</a>
+				</div>
+				<div class="right menu">
+					<div class="header item">
+						<!-- this redirects to about us page -->
+						<a href="/about"><i class="info icon"></i> About Me</a> 
+					</div>
+				</div>
+			</div>
+    </div>
+    
+    <div class="title">
+      <h1>
+        <i class="crosshairs icon"></i> Coriolis Effect
+      </h1>
+      <h2>
+        Try shooting at a target on a spinning platform
+      </h2>
+    </div>
+
+    <div class="main ui container">
+
+      <h2>
+        <i class="gamepad blue icon"></i> Let's go for a play
+      </h2>
+      <hr class="smooth">
+
+      
+      <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas"></canvas>
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-mobile-warning">
+        WebGL builds are not supported on mobile devices.
+      </div>
+      <div id="unity-footer">
+        <div id="unity-fullscreen-button"></div>
+      </div>
+    </div>
+    <div style="width: 960px; height: 600px"></div>
+    
+    <a class="ui button green" style="margin-top: 5em" href="#">Learn More</a>
+    <a class="ui button blue" style="margin-top: 5em" href="/coriolis">Back</a>
+  </div>
+  
+    <script>
+      var buildUrl = "/CoriolisGame/Build";
+      var loaderUrl = buildUrl + "/builds.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/builds.data",
+        frameworkUrl: buildUrl + "/builds.framework.js",
+        codeUrl: buildUrl + "/builds.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Coriollis",
+        productVersion: "0.1",
+      };
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var mobileWarning = document.querySelector("#unity-mobile-warning");
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";
+        config.devicePixelRatio = 1;
+        mobileWarning.style.display = "block";
+        setTimeout(() => {
+          mobileWarning.style.display = "none";
+        }, 5000);
+      } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

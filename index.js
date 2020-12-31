@@ -56,6 +56,11 @@ app.get('/coriolis', (req,res) =>{
 	res.render("games/coriolis");
 });
 
+app.get('/coriolis/game', (req,res) =>{
+	res.sendFile(__dirname + "/public/CoriolisGame/index.html");
+	// res.sendFile(__dirname + "/views/minigames/games/cgj.html");
+});
+
 app.get('/relativity', (req,res) => {
 	res.send("page under construction")
 	// res.render("games/relativity");
